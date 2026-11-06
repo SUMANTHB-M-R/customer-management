@@ -1,0 +1,559 @@
+
+/* ==============================
+   GLOBAL STYLES
+============================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  background: #f5f6fa;
+  overflow: hidden;
+}
+
+/* ==============================
+   COMMON BUTTONS
+============================== */
+
+button {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 5px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.delete-button {
+  background: #dc2626;
+}
+
+.delete-button:hover:not(:disabled) {
+  background: #b91c1c;
+}
+
+.cancel-button {
+  background: #e5e7eb;
+  color: #333;
+}
+
+.cancel-button:hover:not(:disabled) {
+  background: #d1d5db;
+}
+
+/* ==============================
+   REQUIRED FIELD STAR
+============================== */
+
+.required-star {
+  color: #dc2626 !important;
+  margin-left: 4px;
+  font-weight: 700;
+  display: inline !important;
+  font-size: inherit;
+}
+
+/* ==============================
+   HEADER
+============================== */
+
+.customers-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.customers-page header {
+  height: 68px;
+  min-height: 68px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.customers-page header h2 {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 600;
+}
+
+/* ==============================
+   CUSTOMERS PAGE
+============================== */
+
+.customers-content {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 40px 20px;
+  overflow: hidden;
+}
+
+.customers-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+  margin-bottom: 22px;
+}
+
+.customers-heading {
+  flex-shrink: 0;
+}
+
+.customers-title-row h2 {
+  margin: 0 0 6px;
+  font-size: 24px;
+}
+
+.customers-title-row p {
+  margin: 0;
+  color: #777;
+  font-size: 14px;
+}
+
+/* ==============================
+   CUSTOMER SEARCH
+============================== */
+
+.customer-search {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  margin-left: auto;
+}
+
+.customer-search input {
+  width: 100%;
+  height: 40px;
+  padding: 0 38px 0 13px;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  background: #fff;
+  color: #333;
+  font-size: 14px;
+  outline: none;
+}
+
+.customer-search input::placeholder {
+  color: #9ca3af;
+}
+
+.customer-search input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.clear-search-button {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  padding: 2px 6px;
+  background: transparent;
+  color: #6b7280;
+  font-size: 21px;
+  line-height: 1;
+}
+
+.clear-search-button:hover {
+  background: transparent;
+  color: #dc2626;
+}
+
+/* ==============================
+   ERROR MESSAGE
+============================== */
+
+.error-message {
+  flex-shrink: 0;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  background: #fee2e2;
+  color: #991b1b;
+  border-radius: 5px;
+}
+
+/* ==============================
+   CUSTOMER TABLE
+============================== */
+
+.table-container {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+}
+
+.table-container table {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.table-container th,
+.table-container td {
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.table-container th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #f0f2f5;
+  font-weight: 600;
+}
+
+.table-container tbody tr:hover {
+  background: #f8faff;
+}
+
+.empty-message {
+  padding: 30px !important;
+  text-align: center !important;
+  color: #777;
+}
+
+/* Edit and Delete button spacing */
+
+.table-container td button {
+  margin-right: 8px;
+}
+
+.table-container td button:last-child {
+  margin-right: 0;
+}
+
+/* ==============================
+   PAGINATION
+============================== */
+
+.pagination-container {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pagination-button {
+  min-width: 36px;
+  padding: 8px 12px;
+  margin: 0;
+  background: #fff;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background: #f0f2f5;
+}
+
+.pagination-button.active-page {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+.pagination-info {
+  color: #666;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+/* ==============================
+   DIALOGS
+============================== */
+
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.dialog-overlay form,
+.confirm-dialog {
+  width: 400px;
+  max-width: 100%;
+  padding: 28px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dialog-overlay h3,
+.confirm-dialog h3 {
+  margin: 0 0 22px;
+  font-size: 19px;
+}
+
+.dialog-overlay label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.dialog-overlay input {
+  width: 100%;
+  padding: 11px 12px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.dialog-overlay input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.confirm-dialog p {
+  margin-bottom: 22px;
+  line-height: 1.5;
+}
+
+/* Dialog validation error */
+
+.dialog-overlay .error-message {
+  margin-bottom: 15px;
+  padding: 10px 12px;
+  color: #dc2626;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+/* ==============================
+   LOGIN PAGE
+============================== */
+
+.login-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: #f5f6fa;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+}
+
+.login-heading {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.login-heading h1 {
+  margin: 0 0 8px;
+  color: #1f2937;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.login-heading p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Login form */
+
+.login-form-group {
+  margin-bottom: 22px;
+}
+
+.login-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Ensure required star remains red in login labels */
+
+.login-form-group label .required-star {
+  color: #dc2626 !important;
+  display: inline !important;
+  font-weight: 700;
+}
+
+.login-form-group input {
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+}
+
+.login-form-group input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Password visibility */
+
+.password-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-input-wrapper input {
+  padding-right: 45px;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  padding: 5px;
+  background: transparent;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.password-toggle:hover {
+  background: transparent;
+  color: #2563eb;
+}
+
+/* Login button */
+
+.login-card form button[type="submit"] {
+  width: 100%;
+  height: 44px;
+  margin-top: 5px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.login-card form button[type="submit"]:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+/* Login error */
+
+.login-error {
+  padding: 11px 12px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background: #fee2e2;
+  color: #991b1b;
+  font-size: 13px;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+@media (max-width: 700px) {
+  .customers-page header {
+    padding: 0 16px;
+  }
+
+  .customers-content {
+    padding: 20px 16px;
+  }
+
+  .customers-title-row {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .customer-search {
+    order: 3;
+    max-width: none;
+    margin-left: 0;
+  }
+
+  .table-container th,
+  .table-container td {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+
+  .pagination-container {
+    flex-wrap: wrap;
+  }
+
+  .pagination-controls {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 28px 22px;
+  }
+}
